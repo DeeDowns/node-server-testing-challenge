@@ -7,27 +7,27 @@ module.exports = {
     remove
 }
 
-async function add(hobbit) {
-    return db('hobbits')
-    .insert(hobbit, 'id')
+async function add(user) {
+    return db('users')
+    .insert(user, 'id')
     .then(([id]) => {
       return findById(id)
     });
 }
 
 function getAll() {
-    return db('hobbits');
+    return db('users');
 }
 
   function findById(id) {
-    return db('hobbits')
+    return db('users')
     .where({id})
     .first();
   
 }
 
 function remove(id) {
-    return db('hobbits')
+    return db('users')
     .where({id})
     .del()
 }
